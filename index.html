@@ -102,24 +102,33 @@
       text-decoration: underline;
     }
 
-    .copy-row {
+    .citation-title-row {
       display: flex;
-      justify-content: flex-end;
-      margin-bottom: 0.625rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
 
-    .copy-row button {
+    .citation-title-row h1 {
+      margin: 0;
+      flex: 1 1 auto;
+    }
+
+    .citation-copy-button {
+      flex: 0 0 auto;
       padding: 0.5rem 0.875rem;
       border: 1px solid rgba(0, 0, 0, 0.12);
       border-radius: 999px;
       background: rgba(0, 0, 0, 0.05);
       color: #000;
       font-size: 0.875rem;
+      white-space: nowrap;
       cursor: pointer;
       transition: background-color 200ms ease-in-out;
     }
 
-    .copy-row button:hover {
+    .citation-copy-button:hover {
       background: rgba(0, 0, 0, 0.1);
     }
 
@@ -136,13 +145,13 @@
       white-space: pre;
     }
 
-    .dark .copy-row button {
+    .dark .citation-copy-button {
       border-color: rgba(255, 255, 255, 0.16);
       background: rgba(255, 255, 255, 0.08);
       color: #fff;
     }
 
-    .dark .copy-row button:hover {
+    .dark .citation-copy-button:hover {
       background: rgba(255, 255, 255, 0.16);
     }
 
@@ -367,14 +376,14 @@
               
 
           <div class="space-y-3 pt-16" id="citation">
-            <h1 class="text-primary font-sans text-xl font-bold dark:text-white">
-              Citation
-            </h1>
+            <div class="citation-title-row">
+              <h1 class="text-primary font-sans text-xl font-bold dark:text-white">
+                Citation
+              </h1>
+              <button id="copy-bibtex" class="citation-copy-button" type="button" onclick="copyBibTeX()">Copy BibTeX</button>
+            </div>
             <hr class="hr">
 
-            <div class="copy-row">
-              <button id="copy-bibtex" type="button" onclick="copyBibTeX()">Copy BibTeX</button>
-            </div>
             <pre id="bibtex">@article{xu2025manalyzer,
   title={Manalyzer: End-to-end Automated Meta-analysis with Multi-agent System},
   author={Xu, Wanghan and Zhang, Wenlong and Ling, Fenghua and Fei, Ben and Hu, Yusong and Ma, Runmin and Zhang, Bo and Ren, Fangxuan and Lin, Jintai and Ouyang, Wanli and others},
